@@ -1,0 +1,37 @@
+{
+  "header_urls_to_validate": [
+    "github",
+    "www",
+    "profilepic"
+  ],
+  "header_fields_to_shorten": [
+    "orcid",
+    "twitter",
+    "github",
+    "linkedin"
+  ],
+  "supported_header_fields": [
+    "name",
+    "position",
+    "address",
+    "date",
+    "profilepic",
+    "www",
+    "email",
+    "orcid",
+    "twitter",
+    "github",
+    "linkedin",
+    "about_me",
+    "headcolor",
+    "output"
+  ],
+  "supported_entries": [
+      "citation",
+      "education",
+      "employment",
+      "funding-to-do",
+      "work",
+      "r_package"
+    ]
+}
