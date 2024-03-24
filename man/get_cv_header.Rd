@@ -4,11 +4,17 @@
 \alias{get_cv_header}
 \title{get CV header}
 \usage{
-get_cv_header(orcid = Sys.getenv("ORCID_ID"), output_type = c("list", "yaml"))
+get_cv_header(
+  orcid = Sys.getenv("ORCID_ID"),
+  json_path = NULL,
+  output_type = c("list", "yaml")
+)
 }
 \arguments{
 \item{orcid}{string with the ORCID ID
 by default fetched fomr "ORCID_ID" system variable}
+
+\item{json_path}{string to JSON file with additional/custom data}
 
 \item{output_type}{string with output format ('list' or 'yaml'
 

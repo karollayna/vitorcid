@@ -5,7 +5,7 @@
 \title{get CV}
 \usage{
 get_cv(
-  out_file = "CV",
+  out_file = file.path(getwd(), "CV"),
   orcid = Sys.getenv("ORCID_ID"),
   output_type = c("Rmd", "pdf"),
   json_path = NULL,

@@ -14,25 +14,32 @@
 #' @keywords vitae
 #'
 get_cv <-
-  function(out_file = "CV",
+  function(out_file = file.path(getwd(), "CV"),
            orcid = Sys.getenv("ORCID_ID"),
            output_type = c("Rmd", "pdf"),
            json_path = NULL,
            entries = c("education", "employment", "r_package", "citation")) {
-    cvl <- get_cv_data(orcid = orcid)
-    header_yaml <- get_cv_header(orcid = orcid, output_type = "yaml")
+    cvl <- get_cv_data(orcid = orcid, json_path = json_path)
+    header_yaml <-
+      get_cv_header(orcid = orcid,
+                    output_type = "yaml",
+                    json_path = json_path)
     rmd_tmpfile <- tempfile(fileext = ".Rmd")
     write("---", rmd_tmpfile)
     write(header_yaml, rmd_tmpfile, append = TRUE)
     write("---", rmd_tmpfile, append = TRUE)
 
+    json_path_str <- if (is.null(json_path)) {
+      "NULL"
+    } else {
+      sprintf("'%s'", json_path)
+    }
     rmd_str <-
-      "```{r setup, include=FALSE}
+      sprintf("```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitorcid)
-cvl <- get_cv_data()
-
-```"
+cvl <- get_cv_data(orcid = '%s', json_path = %s)
+```", orcid, json_path_str)
 
     if (!is.null(cvl$pd$summary)) {
       rmd_str <- c(
@@ -79,6 +86,7 @@ cvl[[\"%s\"]]
 #'
 #' @param orcid string with the ORCID ID
 #'  by default fetched fomr "ORCID_ID" system variable
+#' @param json_path string to JSON file with additional/custom data
 #' @param output_type string with output format ('list' or 'yaml'
 #'
 #' return list or YAML with header data
@@ -86,17 +94,43 @@ cvl[[\"%s\"]]
 #' @keywords vitae
 #'
 get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
+                          json_path = NULL,
                           output_type = c("list", "yaml")) {
+  
   output_type <- match.arg(output_type)
-
-  pd <- get_personal_data(orcid)
-  links_l <-
-    as.list(structure(pd$links$url.value, names = pd$links$`url-name`))
   shf <- gjd("supported_header_fields",
              json_path = system.file(package = "vitorcid", "config.json"))
 
   huv <- gjd("header_urls_to_validate",
              json_path = system.file(package = "vitorcid", "config.json"))
+
+  pd <- get_personal_data(orcid)
+  links_l <-
+    as.list(structure(pd$links$url.value, names = pd$links$`url-name`))
+ 
+  # get header data from JSON file (if present) 
+  hd_l <-
+    if (!is.null(json_path) &&
+        "header_data" %in% get_json_names(json_path)) {
+      out_l <- gjd("header_data", json_path = json_path)
+      if (!all(names(out_l) %in% shf)) {
+        stop(
+          sprintf(
+            "Some entries in 'header_data' (from JSON file) are not supported: '%s'. Select on from: '%s'",
+            toString(setdiff(names(out_l), shf)),
+            toString(shf)
+          )
+        )
+      }
+      out_l
+    } else {
+      list()
+    }
+  
+  # mergee header data from JSON file with data from ORCID 
+  # (with higher priority given to values from JSON file)
+  links_l <- utils::modifyList(links_l, hd_l)
+  
   for (entry in huv) {
     if (entry %in% names(links_l)) {
       if (!validate_url(links_l[[entry]])) {
@@ -156,7 +190,7 @@ get_cv_data <-
            json_path = NULL,
            entries = c("education", "employment", "r_package", "citation")) {
     ml <- lapply(entries, function(entry) {
-      get_vitae_entry(entry, orcid)
+      get_vitae_entry(entry, orcid, json_path = json_path)
     })
     names(ml) <- entries
     ml$pd <- get_personal_data(orcid)

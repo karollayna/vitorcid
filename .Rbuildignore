@@ -1,3 +1,4 @@
 ^vitorcid\.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$
+^vignette/.httr-oauth$

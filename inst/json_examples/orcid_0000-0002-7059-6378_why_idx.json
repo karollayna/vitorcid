@@ -1,0 +1,30 @@
+{
+  "employment": [
+    {
+      "idx": 1,
+      "why": "developing biomedical R packages, especially those related to Next-Generation Sequencing data__developing R/Shiny application for visualization of NGS data__developing R/Shiny application for visualization of dose-response data (technical leader)"
+    },
+    {
+      "idx": 2,
+      "why": "conducting classes (bioinformatics basics) for Biotechnology students (Faculty of Chemistry)"
+    },
+    {
+      "idx": 3,
+      "why": "conducting in silico research__presenting the findings during conferences__developing bioinformatics pipelines__conducting classes (bioinformatics basics)__mentoring undergraduate students"
+    },
+    {
+      "idx": 4,
+      "why": "manual testing of webservices"
+    }
+  ],
+  "education": [
+    {
+      "idx": 1,
+      "why": "PhD thesis title: Evolution of dominance and antibacterial drug targets"
+    },
+    {
+      "idx": 2,
+      "why": "Master thesis title: Inferring potential bubonic plague drug targets from the analysis of predicted protein interactions network of Yersinia pestis KIM"
+    }
+  ]
+} 

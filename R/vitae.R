@@ -78,7 +78,7 @@ get_vitae_detailed_entry <- function(entry_type,
     with = e_dt$with,
     where = e_dt$where,
     when = e_dt$when,
-    why = e_dt$why
+    why = why
   )
 }
 
@@ -172,7 +172,7 @@ get_vitae_r_package_entry <-
       with = pp$with,
       where = pp$where,
       when = pp$when,
-      why = pp$why
+      why = why
     )
   }
 
@@ -182,7 +182,7 @@ add_why <- function(e_dt, entry_type, why, json_path = NULL) {
   if (is.null(why) &&
       !(is.null(json_path)) &&
       entry_type %in% get_json_names(json_path = json_path)) {
-    e_why <- gjd(entry_type)
+    e_why <- gjd(entry_type, json_path = json_path)
     checkmate::assert_data_table(e_why)
     checkmate::assert_true("why" %in% names(e_why))
     checkmate::assert_true(any(c("put-code", "idx") %in% names(e_why)))
