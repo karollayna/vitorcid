@@ -50,8 +50,8 @@ get_supported_entries <-
 
 #' @keywords .internal
 get_json_names <-
-  function(json_path) {
+  function(json_path = system.file(package = "vitorcid", "config.json")) {
     checkmate::assert_file_exists(json_path)
     gjd(names_only = TRUE,
-        json_path = system.file(package = "vitorcid", "config.json"))
+        json_path = json_path)
   }
