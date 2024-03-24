@@ -1,0 +1,80 @@
+---
+title: "Introduction to vitorcid"
+description: >
+  Learn how to get started with the basics of vitorcid.
+author: "vitorcid team"
+vignette: >
+  %\VignetteIndexEntry{vitorcid}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(vitorcid)
+```
+
+# Overview
+To be added soon.
+
+# Use cases
+
+## Customizing CV data with JSON file
+
+Sometimes one might want to customize the CV data. There are three general cases:
+* adding the data unavailable from orcid.org
+* overwriting the data fetched from orcid.org 
+* adding the data not provided at orcid.org
+
+####  Header data
+Currently, there are two header entries that can be provided only via JSON file: 'position' and 'address'. Here is the example JSON file with both entries defined: 
+```{r}
+j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_header_data.json")
+jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
+```
+
+Sometimes, user might want to update the email or profile picture:
+```{r}
+j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_email.json")
+jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
+
+j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_profilepic.json")
+jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
+```
+
+One can use the JSON data while getting the latest CV in the following way:
+```{r, eval = FALSE}
+vitorcid::get_cv(json_path = j_path)
+```
+
+
+### Non-header data
+One is not able to provide details about specific employment or education entries at the orcid.org. Here is the example of defining such details for the user with ORCID ID: "0000-0002-7059-6378". In his case there are four employment and two education entries (see details [here]( https://orcid.org/0000-0002-7059-6378/print).
+
+```{r}
+# defining details with idx (counting from the top to the bottom)
+j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_why_idx.json")
+jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
+
+# defining details with put-code(s) from orcid.org
+# each put-code refers to the given record from education/employment
+j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_why_put-code.json")
+jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
+```
+
+One can use the JSON data while getting the latest CV in the following way:
+```{r, eval = FALSE}
+vitorcid::get_cv(json_path = j_path)
+```
+
+# SessionInfo {-}
+
+```{r sessionInfo}
+sessionInfo()
+```
