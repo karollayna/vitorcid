@@ -16,3 +16,4 @@ list with personal data
 \description{
 get personal data from ORCID
 }
+\keyword{CV}

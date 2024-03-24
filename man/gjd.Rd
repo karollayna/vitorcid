@@ -21,3 +21,4 @@ R object returned from \code{jsonlite::fromJSON}
 \description{
 get data from json file, either subset of full data
 }
+\keyword{JSON}
