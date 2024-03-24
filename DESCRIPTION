@@ -15,7 +15,6 @@ Imports:
    jsonlite,
    magick,
    pkgsearch,
-   rcrossref,
    RCurl,
    rmarkdown,
    rorcid,
