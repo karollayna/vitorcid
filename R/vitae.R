@@ -9,6 +9,7 @@
 #' @param json_path string with the path to the JSON file
 #'
 #' @export
+#' @keywords vitae
 #' @return vitae entry (standardized data.table)
 #'
 get_vitae_entry <- function(entry_type,

@@ -11,7 +11,7 @@
 #'
 #' @return NULL
 #' @export
-#' @keywords vitae
+#' @keywords CV
 #'
 get_cv <-
   function(out_file = file.path(getwd(), "CV"),
@@ -91,7 +91,7 @@ cvl[[\"%s\"]]
 #'
 #' return list or YAML with header data
 #' @export
-#' @keywords vitae
+#' @keywords CV
 #'
 get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
                           json_path = NULL,
@@ -183,7 +183,7 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
 #'
 #' @return list with CV data
 #' @export
-#' @keywords vitae
+#' @keywords CV
 #'
 get_cv_data <-
   function(orcid = Sys.getenv("ORCID_ID"),
@@ -201,13 +201,14 @@ get_cv_data <-
   }
 
 
-#' extract data
+#' extract date
 #'
 #' extract date from ORCID section (e.g. employment or education summary)
 #'
 #' @param tbl summary table fetched from ORCID
 #' @param tag string with the summary tag
 #'
+#' @keywords internal
 #' @return character vector with start date - end date entris for each employment or education record
 #'
 extract_date <- function(tbl, tag = "employment-summary") {
@@ -234,6 +235,7 @@ extract_date <- function(tbl, tag = "employment-summary") {
 #' @param orcid string with the ORCID ID
 #'  by default fetched fomr "ORCID_ID" system variable
 #' @export
+#' @keywords CV
 #' @return list with personal data
 #'
 get_personal_data <- function(orcid = Sys.getenv("ORCID_ID")) {

@@ -9,6 +9,7 @@
 #' @param json_path string with the path to the JSON file
 #'
 #' @return R object returned from `jsonlite::fromJSON`
+#' @keywords JSON
 #' @export
 
 gjd <-
