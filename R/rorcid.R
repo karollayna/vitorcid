@@ -29,12 +29,17 @@ get_cv <-
     write(header_yaml, rmd_tmpfile, append = TRUE)
     write("---", rmd_tmpfile, append = TRUE)
 
+    json_path_str <- if (is.null(json_path)) {
+      "NULL"
+    } else {
+      sprintf("'%s'", json_path)
+    }
     rmd_str <-
       sprintf("```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitorcid)
-cvl <- get_cv_data(orcid = \"%s\", json_path = \"%s\")
-```", orcid, json_path)
+cvl <- get_cv_data(orcid = '%s', json_path = %s)
+```", orcid, json_path_str)
 
     if (!is.null(cvl$pd$summary)) {
       rmd_str <- c(
@@ -81,6 +86,7 @@ cvl[[\"%s\"]]
 #'
 #' @param orcid string with the ORCID ID
 #'  by default fetched fomr "ORCID_ID" system variable
+#' @param json_path string to JSON file with additional/custom data
 #' @param output_type string with output format ('list' or 'yaml'
 #'
 #' return list or YAML with header data
@@ -184,7 +190,7 @@ get_cv_data <-
            json_path = NULL,
            entries = c("education", "employment", "r_package", "citation")) {
     ml <- lapply(entries, function(entry) {
-      get_vitae_entry(entry, orcid,json_path = json_path)
+      get_vitae_entry(entry, orcid, json_path = json_path)
     })
     names(ml) <- entries
     ml$pd <- get_personal_data(orcid)
