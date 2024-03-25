@@ -105,8 +105,8 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
              json_path = system.file(package = "vitorcid", "config.json"))
 
   pd <- get_personal_data(orcid)
-  links_l <-
-    as.list(structure(pd$links$url.value, names = pd$links$`url-name`))
+  links_l <- as.list(pd$links$url.value)
+  names(links_l) <- pd$links$`url-name`
  
   # get header data from JSON file (if present) 
   hd_l <-
