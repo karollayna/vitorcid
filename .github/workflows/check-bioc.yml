@@ -41,8 +41,7 @@ env:
   cache-version: 'cache-v1'
   run_docker: 'false'
   pkg_name: 'vitorcid'
-  #gref_pkgdown: 'refs/heads/main'
-  gref_pkgdown: 'refs/heads/3-add-ci-with-pkdown-support'
+  gref_pkgdown: 'refs/heads/main'
 
 jobs:
   build-check:
