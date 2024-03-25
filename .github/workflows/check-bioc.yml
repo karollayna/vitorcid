@@ -245,6 +245,7 @@ jobs:
           # - notes can be controlled
           # - linter checks
           # TODO: use BiocCheck with `bioc_check = TRUE`
+          library(gDRstyle)
           gDRstyle::checkPackage(pkg_name, repoDir = ".", fail_on = "note")
         shell: Rscript {0}
 
