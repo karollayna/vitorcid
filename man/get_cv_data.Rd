@@ -24,4 +24,4 @@ list with CV data
 \description{
 get CV data from ORCID
 }
-\keyword{vitae}
+\keyword{CV}

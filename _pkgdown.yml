@@ -1,0 +1,14 @@
+url: https://gladkia.github.io/vitorcid/
+template:
+  bootstrap: 5
+
+reference:
+- title: CV getters
+- contents:
+  - has_keyword("CV")
+- title: vitae helpers
+- contents:
+  - has_keyword("vitae")
+- title: JSON helpers
+- contents:
+  - has_keyword("JSON")

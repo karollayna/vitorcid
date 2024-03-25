@@ -8,3 +8,11 @@
 
 *.utf8.md
 *.knit.md
+*.html
+
+vignettes/*.html
+vignettes/*.pdf
+vignettes/fonts/*
+vignettes/*.cls
+*.cls
+

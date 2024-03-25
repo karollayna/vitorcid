@@ -1,6 +1,6 @@
 Package: vitorcid
 Title: A wrapper of vitae create a CV with the data fetched from ORCID database
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person("Arkadiusz", "Gladki", , "arek@gladki.pl", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
@@ -22,7 +22,11 @@ Imports:
    utils,
    vitae,
    yaml
+Suggests:
+   knitr
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+VignetteBuilder: 
+    knitr

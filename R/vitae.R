@@ -9,6 +9,7 @@
 #' @param json_path string with the path to the JSON file
 #'
 #' @export
+#' @keywords vitae
 #' @return vitae entry (standardized data.table)
 #'
 get_vitae_entry <- function(entry_type,
@@ -179,9 +180,8 @@ get_vitae_r_package_entry <-
 #' @inheritParams get_vitae_entry
 #' @keywords .internal
 add_why <- function(e_dt, entry_type, why, json_path = NULL) {
-  if (is.null(why) &&
-      !(is.null(json_path)) &&
-      entry_type %in% get_json_names(json_path = json_path)) {
+  if (is.null(why) && !(is.null(json_path)) && 
+        entry_type %in% get_json_names(json_path = json_path)) {
     e_why <- gjd(entry_type, json_path = json_path)
     checkmate::assert_data_table(e_why)
     checkmate::assert_true("why" %in% names(e_why))
@@ -189,8 +189,7 @@ add_why <- function(e_dt, entry_type, why, json_path = NULL) {
     checkmate::assert_true(nrow(e_why) == nrow(e_dt))
 
     e_dt$idx <-  seq(nrow(e_dt))
-    if ("put-code" %in% names(e_why) &&
-        !("idx" %in% names(e_why))) {
+    if ("put-code" %in% names(e_why) && !("idx" %in% names(e_why))) {
       e_why$idx <-
         match(e_why[["put-code"]], e_dt[[paste0(entry_type, "-summary.put-code")]])
       checkmate::assert_true(!all(is.na(e_why$idx)))

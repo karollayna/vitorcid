@@ -1,4 +1,12 @@
 ^vitorcid\.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$
-^vignette/.httr-oauth$
+^vignettes/.httr-oauth$
+^vignettes/fonts/*$
+^vignettes/*.cls$
+
+^docs$
+^Meta$
+
+^\.github$
+

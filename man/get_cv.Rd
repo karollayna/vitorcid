@@ -27,4 +27,4 @@ by default fetched fomr "ORCID_ID" system variable}
 \description{
 get CV as Rmd and/or PDF file with data from ORCID
 }
-\keyword{vitae}
+\keyword{CV}

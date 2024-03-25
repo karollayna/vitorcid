@@ -27,3 +27,4 @@ vitae entry (standardized data.table)
 \description{
 get vitae entry with data from ORCID or CRAN/BioC
 }
+\keyword{vitae}

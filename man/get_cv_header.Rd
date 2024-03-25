@@ -23,4 +23,4 @@ return list or YAML with header data}
 \description{
 get CV header as YAML or list with data from ORCID
 }
-\keyword{vitae}
+\keyword{CV}
