@@ -41,7 +41,8 @@ env:
   cache-version: 'cache-v1'
   run_docker: 'false'
   pkg_name: 'vitorcid'
-  gref_pkgdown: 'refs/heads/main'
+  #gref_pkgdown: 'refs/heads/main'
+  gref_pkgdown: 'refs/heads/3-add-ci-with-pkdown-support'
 
 jobs:
   build-check:
@@ -243,13 +244,13 @@ jobs:
           # - notes can be controlled
           # - linter checks
           # TODO: use BiocCheck with `bioc_check = TRUE`
-          gDRstyle::checkPackage(pkg_name, repoDir = ".", skip_tests = TRUE)
+          gDRstyle::checkPackage(pkg_name, repoDir = ".", fail_on = "note")
         shell: Rscript {0}
 
       ## Might need an to add this to the if:  && runner.os == 'Linux'
-      - name: Reveal testthat details
-        if:  env.has_testthat == 'true'
-        run: find . -name testthat.Rout -exec cat '{}' ';'
+      #- name: Reveal testthat details
+      #  if:  env.has_testthat == 'true'
+      #  run: find . -name testthat.Rout -exec cat '{}' ';'
 
       - name: Run RUnit tests
         if:  env.has_RUnit == 'true'
