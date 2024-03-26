@@ -1,3 +1,6 @@
+## vitorcid 0.0.4 - 2024-03-26
+* add basic unit tests
+
 ## vitorcid 0.0.3 - 2024-03-25
 * make package CRAN-compatible
 

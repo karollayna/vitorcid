@@ -1,6 +1,6 @@
 Package: vitorcid
 Title: A Wrapper of Vitae to Create a CV with the Data Fetched from ORCID Database
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person("Arkadiusz", "Gladki", , "arek@gladki.pl", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7059-6378"))
@@ -14,6 +14,7 @@ Imports:
    data.table,
    jsonlite,
    magick,
+   mockery,
    pkgsearch,
    RCurl,
    rmarkdown,
@@ -23,7 +24,8 @@ Imports:
    vitae,
    yaml
 Suggests:
-   knitr
+    knitr,
+    vcr (>= 0.6.0)
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
