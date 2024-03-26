@@ -20,8 +20,35 @@ knitr::opts_chunk$set(
 library(vitorcid)
 ```
 
-# Overview
-To be added soon.
+# victorcid
+
+The `victorcid` package that allows you to generate a CV based on your ORCID profile.
+
+# Installation
+
+Make installation in 3 steps:
+
+1.  Make orcid authorization as described here: <https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd>
+
+2.  Create an environment variable 'ORCID TOKEN' with the token from point 2
+
+3.  Create an environment variable with 'ORCID ID' with your ORCID ID
+
+# CV generation - fast path
+
+1.  Create account on <https://orcid.org/>
+
+This is an example of a completed profile: HERE WILL BE MARYSIA'S PROFILE
+
+<https://orcid.org/0000-0002-7059-6378/print>
+
+**Employment** and **Education** sections are required.
+
+**Websites** and **Social Links** are encouraged but not mandatory.
+
+2.  Generate your CV: vitorcid::get_cv(“CV”)
+
+3.  Review CV.pdf (generated CV) and edit generated template (CV.Rmd) at your own discretion.
 
 # Use cases
 
