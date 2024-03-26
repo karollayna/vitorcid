@@ -47,7 +47,7 @@ Sys.setenv(ORCID_ID = "0000")
 
 1.  Create account on <https://orcid.org/>
 
-This is an example of a completed profile: HERE WILL BE MARYSIA'S PROFILE
+This is an example of a completed profile: [link](https://orcid.org/0000-0002-7059-6378/print).
 
 <https://orcid.org/0000-0002-7059-6378/print>
 
