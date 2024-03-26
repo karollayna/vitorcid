@@ -37,7 +37,7 @@ Sys.setenv(ORCID_TOKEN = "000abc")
 ```
 
 
-3.  Create an environment variable with 'ORCID ID' with your ORCID ID
+3.  Create an environment variable with your 'ORCID ID'.
 ```{r, eval = FALSE}
 Sys.setenv(ORCID_ID = "0000")
 
