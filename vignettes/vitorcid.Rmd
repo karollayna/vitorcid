@@ -16,30 +16,33 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(vitorcid)
-```
-
-# vitorcid
+# Quick summary
 
 The `vitorcid` package allows you to generate a CV based on your ORCID profile.
 
 # Installation
 
-Make installation in 3 steps:
+You can install the package using remotes in the following way:
 
-1.  Authenticate with orcid.org as described [here](https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd)
+```
+remotes::install_github("https://github.com/gladkia/vitorcid.git", ref = "main")
+```
+
+# Authentication
+
+Take care of the authentication requirements  with three steps:
+
+1.  Authenticate with orcid.org as described [here](https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd).
 
 2.  Create an environment variable 'ORCID TOKEN'. Use the value obtained from the previous step.
 ```{r, eval = FALSE}
-Sys.setenv(ORCID_TOKEN = "000abc")
+Sys.setenv(ORCID_TOKEN = "__your_token__")
 
 ```
 
-
 3.  Create an environment variable with your 'ORCID ID'.
 ```{r, eval = FALSE}
-Sys.setenv(ORCID_ID = "0000")
+Sys.setenv(ORCID_ID = "__your_orcid_id__")
 
 ```
 
@@ -48,7 +51,6 @@ Sys.setenv(ORCID_ID = "0000")
 1.  Create an account on <https://orcid.org/>.
 
 This is an example of a completed profile: [link](https://orcid.org/0000-0002-7059-6378/print).
-
 
 **Employment** and **Education** sections are required.
 

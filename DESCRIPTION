@@ -1,9 +1,11 @@
 Package: vitorcid
 Title: A Wrapper of Vitae to Create a CV with the Data Fetched from ORCID Database
-Version: 0.0.4
-Authors@R: 
+Version: 0.0.5
+Authors@R: c(
     person("Arkadiusz", "Gladki", , "arek@gladki.pl", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-7059-6378"))
+           comment = c(ORCID = "0000-0002-7059-6378")),
+    person("Karolina","Scigocka", role = c("ctb"))
+    ) 
 Description: The aim of the package is to facilitate the proces of creating CV, especialy for the R community. 
     The package is kind of a wrapper of vitae with data being mostly fetched from the ORCID database. 
     User can provide custom data via the JSON file. Information about published R packages 
