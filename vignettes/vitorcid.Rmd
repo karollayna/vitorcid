@@ -61,7 +61,9 @@ This is an example of a completed profile: [link](https://orcid.org/0000-0002-70
 vitorcid::get_cv("CV")
 ```
 
-3.  Review CV.pdf (generated CV) and edit generated template (CV.Rmd) at your own discretion.
+3.  Review CV.pdf (generated CV). If some corrections are needed you can do them in two ways:
+* update the data at orcid.org and rerun `get_cv`
+*  edit the template (CV.Rmd) and knit it (e.g. from within the Rstudio)
 
 # Use cases
 
