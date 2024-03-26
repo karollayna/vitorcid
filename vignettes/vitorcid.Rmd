@@ -22,7 +22,7 @@ library(vitorcid)
 
 # vitorcid
 
-The `vitorcid` package that allows you to generate a CV based on your ORCID profile.
+The `vitorcid` package allows you to generate a CV based on your ORCID profile.
 
 # Installation
 
