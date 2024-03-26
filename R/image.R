@@ -35,7 +35,7 @@ normalize_cv_image <- function(img) {
       img_format <- get_image_format(img)
       out_file <-
         file.path(tempdir(), paste0("profilepic", ".", img_format))
-      utils::download.file(img, destfile = out_file)
+      utils::download.file(img, destfile = out_file, quiet = TRUE)
       out_file
     } else {
       stop("Invalid profilepic URL or file path. Please check the URL or file path.")
