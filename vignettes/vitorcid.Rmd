@@ -28,7 +28,7 @@ The `vitorcid` package allows you to generate a CV based on your ORCID profile.
 
 Make installation in 3 steps:
 
-1.  Make orcid authorization as described here: <https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd>
+1.  Authenticate with orcid.org as described [here](https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd)
 
 2.  Create an environment variable 'ORCID TOKEN' with the token from point 2
 ```{r, eval = FALSE}
