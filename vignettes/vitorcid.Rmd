@@ -31,8 +31,17 @@ Make installation in 3 steps:
 1.  Make orcid authorization as described here: <https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd>
 
 2.  Create an environment variable 'ORCID TOKEN' with the token from point 2
+```{r, eval = FALSE}
+Sys.setenv(ORCID_TOKEN = "000abc")
+
+```
+
 
 3.  Create an environment variable with 'ORCID ID' with your ORCID ID
+```{r, eval = FALSE}
+Sys.setenv(ORCID_ID = "0000")
+
+```
 
 # CV generation - fast path
 
@@ -46,7 +55,11 @@ This is an example of a completed profile: HERE WILL BE MARYSIA'S PROFILE
 
 **Websites** and **Social Links** are encouraged but not mandatory.
 
-2.  Generate your CV: vitorcid::get_cv(“CV”)
+2.  Generate your CV:
+
+```{r, eval = FALSE}
+vitorcid::get_cv("CV")
+```
 
 3.  Review CV.pdf (generated CV) and edit generated template (CV.Rmd) at your own discretion.
 
@@ -54,19 +67,19 @@ This is an example of a completed profile: HERE WILL BE MARYSIA'S PROFILE
 
 ## Customizing CV data with JSON file
 
-Sometimes one might want to customize the CV data. There are three general cases:
-* adding the data unavailable from orcid.org
-* overwriting the data fetched from orcid.org 
-* adding the data not provided at orcid.org
+Sometimes one might want to customize the CV data. There are three general cases: \* adding the data unavailable from orcid.org \* overwriting the data fetched from orcid.org \* adding the data not provided at orcid.org
 
-####  Header data
-Currently, there are two header entries that can be provided only via JSON file: 'position' and 'address'. Here is the example JSON file with both entries defined: 
+#### Header data
+
+Currently, there are two header entries that can be provided only via JSON file: 'position' and 'address'. Here is the example JSON file with both entries defined:
+
 ```{r}
 j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_header_data.json")
 jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
 ```
 
 Sometimes, user might want to update the email or profile picture:
+
 ```{r}
 j_path <- system.file(package = "vitorcid", "json_examples/orcid_0000-0002-7059-6378_email.json")
 jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
@@ -76,13 +89,14 @@ jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
 ```
 
 One can use the JSON data while getting the latest CV in the following way:
+
 ```{r, eval = FALSE}
 vitorcid::get_cv(json_path = j_path)
 ```
 
-
 ### Non-header data
-One is not able to provide details about specific employment or education entries at the orcid.org. Here is the example of defining such details for the user with ORCID ID: "0000-0002-7059-6378". In his case there are four employment and two education entries (see details [here]( https://orcid.org/0000-0002-7059-6378/print).
+
+One is not able to provide details about specific employment or education entries at the orcid.org. Here is the example of defining such details for the user with ORCID ID: "0000-0002-7059-6378". In his case there are four employment and two education entries (see details [here](https://orcid.org/0000-0002-7059-6378/print).
 
 ```{r}
 # defining details with idx (counting from the top to the bottom)
@@ -96,11 +110,12 @@ jsonlite::toJSON(jsonlite::fromJSON(j_path), pretty = TRUE)
 ```
 
 One can use the JSON data while getting the latest CV in the following way:
+
 ```{r, eval = FALSE}
 vitorcid::get_cv(json_path = j_path)
 ```
 
-# SessionInfo {-}
+# SessionInfo {.unnumbered}
 
 ```{r sessionInfo}
 sessionInfo()
