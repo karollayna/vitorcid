@@ -30,7 +30,7 @@ Make installation in 3 steps:
 
 1.  Authenticate with orcid.org as described [here](https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd)
 
-2.  Create an environment variable 'ORCID TOKEN' with the token from point 2
+2.  Create an environment variable 'ORCID TOKEN'. Use the value obtained from the previous step.
 ```{r, eval = FALSE}
 Sys.setenv(ORCID_TOKEN = "000abc")
 
