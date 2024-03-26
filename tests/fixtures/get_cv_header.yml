@@ -1,0 +1,433 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://pub.orcid.org/v3.0/0000-0002-7059-6378/person
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/vnd.orcid+json; qs=4
+      User-Agent: r-curl/5.1.0 crul/1.4.0 rOpenSci(rorcid/0.7.0)
+      X-USER-AGENT: r-curl/5.1.0 crul/1.4.0 rOpenSci(rorcid/0.7.0)
+      Authorization: Bearer <<rorcid_bearer_token>>
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Tue, 26 Mar 2024 07:54:50 GMT
+      content-type: application/vnd.orcid+json;charset=UTF-8
+      transfer-encoding: chunked
+      connection: keep-alive
+      cf-ray: 86a59330c85a907c-FRA
+      cf-cache-status: DYNAMIC
+      access-control-allow-origin: '*'
+      cache-control: no-cache, no-store, max-age=0, must-revalidate
+      expires: '0'
+      pragma: no-cache
+      x-content-type-options: nosniff
+      x-frame-options: DENY
+      x-target: reg-prod-papi-use2-b1
+      x-via: b1
+      x-xss-protection: 1; mode=block
+      vary: Accept-Encoding
+      server: cloudflare
+    body:
+      encoding: ''
+      file: no
+      string: |-
+        {
+          "last-modified-date" : {
+            "value" : 1709999191902
+          },
+          "name" : {
+            "created-date" : {
+              "value" : 1460761044825
+            },
+            "last-modified-date" : {
+              "value" : 1460761044825
+            },
+            "given-names" : {
+              "value" : "Arkadiusz "
+            },
+            "family-name" : {
+              "value" : "Gladki"
+            },
+            "credit-name" : null,
+            "source" : null,
+            "visibility" : "public",
+            "path" : "0000-0002-7059-6378"
+          },
+          "other-names" : {
+            "last-modified-date" : null,
+            "other-name" : [ ],
+            "path" : "/0000-0002-7059-6378/other-names"
+          },
+          "biography" : {
+            "created-date" : {
+              "value" : 1709989089381
+            },
+            "last-modified-date" : {
+              "value" : 1709989089381
+            },
+            "content" : "A passionate R developer and experienced bioinformatician with a demonstrated history of working in the biotechnology industry. Currently leading the development of an R/Shiny application that provides interactive visualizations of dose‐response data.",
+            "visibility" : "public",
+            "path" : "/0000-0002-7059-6378/biography"
+          },
+          "researcher-urls" : {
+            "last-modified-date" : {
+              "value" : 1709999191902
+            },
+            "researcher-url" : [ {
+              "created-date" : {
+                "value" : 1701674837712
+              },
+              "last-modified-date" : {
+                "value" : 1709999191902
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "github",
+              "url" : {
+                "value" : "https://github.com/gladkia"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/researcher-urls/4276430",
+              "put-code" : 4276430,
+              "display-index" : 5
+            }, {
+              "created-date" : {
+                "value" : 1701674837710
+              },
+              "last-modified-date" : {
+                "value" : 1709999191902
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "linkedin",
+              "url" : {
+                "value" : "https://www.linkedin.com/in/arkadiusz-gladki-55b94735/"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/researcher-urls/4276429",
+              "put-code" : 4276429,
+              "display-index" : 4
+            }, {
+              "created-date" : {
+                "value" : 1709998898202
+              },
+              "last-modified-date" : {
+                "value" : 1709999191902
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "www",
+              "url" : {
+                "value" : "http://gladki.pl"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/researcher-urls/4479702",
+              "put-code" : 4479702,
+              "display-index" : 3
+            }, {
+              "created-date" : {
+                "value" : 1709998898201
+              },
+              "last-modified-date" : {
+                "value" : 1709999191902
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "twitter",
+              "url" : {
+                "value" : "https://twitter.com/biosmooth"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/researcher-urls/4479701",
+              "put-code" : 4479701,
+              "display-index" : 2
+            }, {
+              "created-date" : {
+                "value" : 1709999191898
+              },
+              "last-modified-date" : {
+                "value" : 1709999191898
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "url-name" : "profilepic",
+              "url" : {
+                "value" : "https://avatars.githubusercontent.com/u/41166437?s=400&u=3bdb162db1681dafc48e8b85585edf24b1c8122e"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/researcher-urls/4479706",
+              "put-code" : 4479706,
+              "display-index" : 1
+            } ],
+            "path" : "/0000-0002-7059-6378/researcher-urls"
+          },
+          "emails" : {
+            "last-modified-date" : {
+              "value" : 1709991202360
+            },
+            "email" : [ {
+              "created-date" : {
+                "value" : 1701529187590
+              },
+              "last-modified-date" : {
+                "value" : 1709991202360
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "email" : "arek@gladki.pl",
+              "path" : null,
+              "visibility" : "public",
+              "verified" : true,
+              "primary" : false,
+              "put-code" : null
+            } ],
+            "path" : "/0000-0002-7059-6378/email"
+          },
+          "addresses" : {
+            "last-modified-date" : {
+              "value" : 1701674614381
+            },
+            "address" : [ {
+              "created-date" : {
+                "value" : 1701674614381
+              },
+              "last-modified-date" : {
+                "value" : 1701674614381
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "country" : {
+                "value" : "PL"
+              },
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/address/3192569",
+              "put-code" : 3192569,
+              "display-index" : 1
+            } ],
+            "path" : "/0000-0002-7059-6378/address"
+          },
+          "keywords" : {
+            "last-modified-date" : {
+              "value" : 1701674604572
+            },
+            "keyword" : [ {
+              "created-date" : {
+                "value" : 1701674604572
+              },
+              "last-modified-date" : {
+                "value" : 1701674604572
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "Bioinformatics",
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/keywords/3592792",
+              "put-code" : 3592792,
+              "display-index" : 3
+            }, {
+              "created-date" : {
+                "value" : 1701674604570
+              },
+              "last-modified-date" : {
+                "value" : 1701674604570
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "Computational Biology",
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/keywords/3592791",
+              "put-code" : 3592791,
+              "display-index" : 2
+            }, {
+              "created-date" : {
+                "value" : 1701674604568
+              },
+              "last-modified-date" : {
+                "value" : 1701674604568
+              },
+              "source" : {
+                "source-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "source-client-id" : null,
+                "source-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                },
+                "assertion-origin-orcid" : null,
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : null
+              },
+              "content" : "Biostatistics",
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/keywords/3592790",
+              "put-code" : 3592790,
+              "display-index" : 1
+            } ],
+            "path" : "/0000-0002-7059-6378/keywords"
+          },
+          "external-identifiers" : {
+            "last-modified-date" : {
+              "value" : 1517873256636
+            },
+            "external-identifier" : [ {
+              "created-date" : {
+                "value" : 1365431440393
+              },
+              "last-modified-date" : {
+                "value" : 1517873256636
+              },
+              "source" : {
+                "source-orcid" : null,
+                "source-client-id" : {
+                  "uri" : "https://orcid.org/client/0000-0002-5982-8983",
+                  "path" : "0000-0002-5982-8983",
+                  "host" : "orcid.org"
+                },
+                "source-name" : {
+                  "value" : "Scopus - Elsevier"
+                },
+                "assertion-origin-orcid" : {
+                  "uri" : "https://orcid.org/0000-0002-7059-6378",
+                  "path" : "0000-0002-7059-6378",
+                  "host" : "orcid.org"
+                },
+                "assertion-origin-client-id" : null,
+                "assertion-origin-name" : {
+                  "value" : "Arkadiusz  Gladki"
+                }
+              },
+              "external-id-type" : "Scopus Author ID",
+              "external-id-value" : "55573743800",
+              "external-id-url" : {
+                "value" : "http://www.scopus.com/inward/authorDetails.url?authorID=55573743800&partnerID=MN8TOARS"
+              },
+              "external-id-relationship" : "self",
+              "visibility" : "public",
+              "path" : "/0000-0002-7059-6378/external-identifiers/150270",
+              "put-code" : 150270,
+              "display-index" : 0
+            } ],
+            "path" : "/0000-0002-7059-6378/external-identifiers"
+          },
+          "path" : "/0000-0002-7059-6378/person"
+        }
+  recorded_at: 2024-03-26 07:54:52 GMT
+  recorded_with: vcr/1.2.2, webmockr/0.9.0
