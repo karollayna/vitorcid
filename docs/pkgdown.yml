@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   vitorcid: vitorcid.html
-last_built: 2024-03-26T08:57Z
+last_built: 2024-03-27T09:11Z
 urls:
   reference: https://gladkia.github.io/vitorcid/reference
   article: https://gladkia.github.io/vitorcid/articles
