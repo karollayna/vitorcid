@@ -24,27 +24,37 @@ The `vitorcid` package allows you to generate a CV based on your ORCID profile.
 
 You can install the package using remotes in the following way:
 
-```
+```         
 remotes::install_github("https://github.com/gladkia/vitorcid.git", ref = "main")
 ```
 
 # Authentication
 
-Take care of the authentication requirements  with three steps:
+Take care of the authentication requirements with three steps:
 
 1.  Authenticate with orcid.org as described [here](https://github.com/ropensci-archive/rorcid/blob/master/vignettes/authentication.Rmd).
 
 2.  Create an environment variable 'ORCID TOKEN'. Use the value obtained from the previous step.
+
 ```{r, eval = FALSE}
 Sys.setenv(ORCID_TOKEN = "__your_token__")
 
 ```
 
 3.  Create an environment variable with your 'ORCID ID'.
+
 ```{r, eval = FALSE}
 Sys.setenv(ORCID_ID = "__your_orcid_id__")
 
 ```
+
+If you have a problem with authentication, you can also try this path:
+
+1.  restart session in R Studio
+2.  create an environment variables with your 'ORCID_ID' and 'ORCID_TOKEN' as above
+3.  sign your ORCID_ID to 'orcid'
+4.  complete authentication your profile using 'rorcid::orcid_auth()'
+5.  load package using 'library("vitorcid")'
 
 # CV generation - fast path
 
@@ -63,8 +73,9 @@ vitorcid::get_cv("CV")
 ```
 
 3.  Review CV.pdf (generated CV). If some corrections are needed you can do them in two ways:
-* update the data at orcid.org and rerun `get_cv`
-*  edit the template (CV.Rmd) and knit it (e.g. from within the Rstudio)
+
+-   update the data at orcid.org and rerun `get_cv`
+-   edit the template (CV.Rmd) and knit it (e.g. from within the Rstudio)
 
 # Use cases
 

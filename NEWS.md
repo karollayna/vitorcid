@@ -1,3 +1,7 @@
+## vitorcid 0.0.6 - 2024-04-09
+* add new path to authentication orcid profile in vignettes
+
+
 ## vitorcid 0.0.5 - 2024-03-26
 * add vignette
 
