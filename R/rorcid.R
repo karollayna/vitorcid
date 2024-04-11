@@ -251,8 +251,8 @@ get_personal_data <- function(orcid = Sys.getenv("ORCID_ID")) {
   } else {
     ""
   }
-  given_names = pd[["name"]][["given-names"]][["value"]]
-  family_name = pd[["name"]][["family-name"]][["value"]]
+  given_names <- pd[["name"]][["given-names"]][["value"]]
+  family_name <- pd[["name"]][["family-name"]][["value"]]
   if (is.null(given_names)) { 
     stop("Given names are missing in the ORCID record. Please update the 'Names' section in your ORCID profile.")
   }
