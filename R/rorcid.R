@@ -108,6 +108,7 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
   links_l <- if (!is.null(pd$links) && length(pd$links)) {
     links_l <- as.list(pd$links$url.value)
     names(links_l) <- pd$links$`url-name`
+    links_l
   } else {
     list()
   }
