@@ -1,3 +1,6 @@
+## vitorcid 0.0.6 - 2024-04-11
+* improve logic (validation of links and personal data)
+
 ## vitorcid 0.0.5 - 2024-03-26
 * add vignette
 
