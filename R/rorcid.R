@@ -105,9 +105,14 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
              json_path = system.file(package = "vitorcid", "config.json"))
 
   pd <- get_personal_data(orcid)
-  links_l <- as.list(pd$links$url.value)
-  names(links_l) <- pd$links$`url-name`
- 
+  links_l <- if (!is.null(pd$links) && length(pd$links)) {
+    links_l <- as.list(pd$links$url.value)
+    names(links_l) <- pd$links$`url-name`
+    links_l
+  } else {
+    list()
+  }
+  
   # get header data from JSON file (if present) 
   hd_l <-
     if (!is.null(json_path) &&
@@ -127,7 +132,7 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
       list()
     }
   
-  # mergee header data from JSON file with data from ORCID 
+  # merge header data from JSON file with data from ORCID 
   # (with higher priority given to values from JSON file)
   links_l <- utils::modifyList(links_l, hd_l)
   
@@ -241,12 +246,27 @@ extract_date <- function(tbl, tag = "employment-summary") {
 get_personal_data <- function(orcid = Sys.getenv("ORCID_ID")) {
   pd <- rorcid::orcid_person(orcid)[[orcid]]
 
+  emails <- pd[["emails"]][["email"]]
+  email <- if (length(emails) > 0) {
+    emails[1, "email"]
+  } else {
+    ""
+  }
+  given_names <- pd[["name"]][["given-names"]][["value"]]
+  family_name <- pd[["name"]][["family-name"]][["value"]]
+  if (is.null(given_names)) { 
+    stop("Given names are missing in the ORCID record. Please update the 'Names' section in your ORCID profile.")
+  }
+  if (is.null(family_name)) { 
+    stop("Family name(s) is/are missing in the ORCID record. Please update the 'Names' section in your ORCID profile.")
+  }
+
   list(
     given_names = pd[["name"]][["given-names"]][["value"]],
     family_name = pd[["name"]][["family-name"]][["value"]],
     summary = pd[["biography"]][["content"]],
     links = pd[["researcher-urls"]][["researcher-url"]],
-    email = pd[["emails"]][["email"]][1, "email"]
+    email = email
   )
 }
 
