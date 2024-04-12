@@ -1,6 +1,6 @@
 Package: vitorcid
 Title: A Wrapper of Vitae to Create a CV with the Data Fetched from ORCID Database
-Version: 0.0.6
+Version: 0.0.7
 Authors@R: c(
     person("Arkadiusz", "Gladki", , "arek@gladki.pl", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7059-6378")),

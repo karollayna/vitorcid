@@ -51,9 +51,15 @@ Sys.setenv(ORCID_ID = "__your_orcid_id__")
 If you have a problem with authentication, you can also try this path:
 
 1.  restart session in R Studio
+
 2.  create an environment variables with your 'ORCID_ID' and 'ORCID_TOKEN' as above
+
 3.  sign your ORCID_ID to 'orcid'
+
 4.  complete authentication your profile using 'rorcid::orcid_auth()'
+
+    \*if you change your token use 'rorcid::orcid_auth(reauth = TRUE)'
+
 5.  load package using 'library("vitorcid")'
 
 # CV generation - fast path

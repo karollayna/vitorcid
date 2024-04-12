@@ -5,6 +5,7 @@
 \title{get CV header}
 \usage{
 get_cv_header(
+  cv_template = "awesomecv",
   orcid = Sys.getenv("ORCID_ID"),
   json_path = NULL,
   output_type = c("list", "yaml")

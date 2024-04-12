@@ -1,3 +1,7 @@
+## vitorcid 0.0.7 - 2024-04-12
+* add new path to authentication orcid profile in vignettes
+* add function for choosing cv template
+
 ## vitorcid 0.0.6 - 2024-04-11
 * improve logic (validation of links and personal data)
 

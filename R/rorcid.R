@@ -14,14 +14,16 @@
 #' @keywords CV
 #'
 get_cv <-
-  function(out_file = file.path(getwd(), "CV"),
+  function(cv_template = "awesomecv",
+           out_file = file.path(getwd(), "CV"),
            orcid = Sys.getenv("ORCID_ID"),
            output_type = c("Rmd", "pdf"),
            json_path = NULL,
            entries = c("education", "employment", "r_package", "citation")) {
     cvl <- get_cv_data(orcid = orcid, json_path = json_path)
     header_yaml <-
-      get_cv_header(orcid = orcid,
+      get_cv_header(cv_template = cv_template,
+                    orcid = orcid,
                     output_type = "yaml",
                     json_path = json_path)
     rmd_tmpfile <- tempfile(fileext = ".Rmd")
@@ -93,7 +95,8 @@ cvl[[\"%s\"]]
 #' @export
 #' @keywords CV
 #'
-get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
+get_cv_header <- function(cv_template = "awesomecv",
+                          orcid = Sys.getenv("ORCID_ID"),
                           json_path = NULL,
                           output_type = c("list", "yaml")) {
   
@@ -154,16 +157,15 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
   links_l[["profilepic"]] <-
     normalize_cv_image(links_l[["profilepic"]])
   links_l[["www"]] <- normalize_url(links_l[["www"]])
-
+  
   out_l <- pd
   out_l[c("links", "summary", "given_names", "family_name")] <- NULL
-
   out_l[["orcid"]] <- orcid
   out_l[["email"]] <- pd$email
   out_l[["name"]] <- get_full_name(pd)
   out_l[["date"]] <- format(Sys.time(), "%B %Y")
   out_l[["headcolor"]] <- "009ACD"
-  out_l[["output"]] <- "vitae::awesomecv"
+  out_l[["output"]] <- select_vitae_template(cv_template)
 
   out_l <- c(out_l, links_l)
 
@@ -278,4 +280,28 @@ get_full_name <- function(pd) {
   pd$given_names <- gsub("\\s+", " ", pd$given_names)
   pd$given_names <- gsub("^\\s|\\s$", "", pd$given_names)
   sprintf("%s %s", pd$given_names, pd$family_name)
+}
+
+#' select vitae tepmlate
+#' 
+#' select vitae template from the list of templates in package "vitae"
+#' 
+#' @param template string with the template name
+select_vitae_template <- function(template = "awesomecv") {
+  templates <- c("awesomecv", 
+                 "hyndman", 
+                 "latexcv", 
+                 "markdowncv", 
+                 "moderncv", 
+                 "twentyseconds")
+  
+  if (template %in% templates) {
+    
+    pd <- get_personal_data(orcid)
+    out_l <- pd
+    out_l[["output"]] <- paste0("vitae::", template)
+    return(out_l[["output"]])
+  } else {
+    print("Please, select vitae template from the list:", templates)
+  }
 }
