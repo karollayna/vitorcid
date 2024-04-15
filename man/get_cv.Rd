@@ -5,12 +5,13 @@
 \title{get CV}
 \usage{
 get_cv(
-  cv_template = "awesomecv",
   out_file = file.path(getwd(), "CV"),
   orcid = Sys.getenv("ORCID_ID"),
   output_type = c("Rmd", "pdf"),
   json_path = NULL,
-  entries = c("education", "employment", "r_package", "citation")
+  entries = c("education", "employment", "r_package", "citation"),
+  template = "vitorcid::awesomecv",
+  template_args = NULL
 )
 }
 \arguments{
@@ -24,6 +25,11 @@ by default fetched fomr "ORCID_ID" system variable}
 \item{json_path}{string to JSON file with additional/custom data}
 
 \item{entries}{character vector with entries to be included in the CV}
+
+\item{template}{string with the name of the CV template.
+Currently only vitae templates are supported.}
+
+\item{template_args}{list with additional arguments to be passed to the template}
 }
 \description{
 get CV as Rmd and/or PDF file with data from ORCID

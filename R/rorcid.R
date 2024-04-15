@@ -8,24 +8,29 @@
 #' @param output_type string with output format ('Rmd' or 'pdf')
 #' @param json_path string to JSON file with additional/custom data
 #' @param entries character vector with entries to be included in the CV
+#' @param template string with the name of the CV template.
+#'   Currently only vitae templates are supported.
+#' @param template_args list with additional arguments to be passed to the template
 #'
 #' @return NULL
 #' @export
 #' @keywords CV
 #'
 get_cv <-
-  function(cv_template = "awesomecv",
-           out_file = file.path(getwd(), "CV"),
+  function(out_file = file.path(getwd(), "CV"),
            orcid = Sys.getenv("ORCID_ID"),
            output_type = c("Rmd", "pdf"),
            json_path = NULL,
-           entries = c("education", "employment", "r_package", "citation")) {
+           entries = c("education", "employment", "r_package", "citation"),
+           template = "vitae::awesomecv",
+           template_args = NULL) {
     cvl <- get_cv_data(orcid = orcid, json_path = json_path)
     header_yaml <-
-      get_cv_header(cv_template = cv_template,
-                    orcid = orcid,
+      get_cv_header(orcid = orcid,
                     output_type = "yaml",
-                    json_path = json_path)
+                    json_path = json_path,
+                    template = template,
+                    template_args = template_args)
     rmd_tmpfile <- tempfile(fileext = ".Rmd")
     write("---", rmd_tmpfile)
     write(header_yaml, rmd_tmpfile, append = TRUE)
@@ -90,15 +95,19 @@ cvl[[\"%s\"]]
 #'  by default fetched fomr "ORCID_ID" system variable
 #' @param json_path string to JSON file with additional/custom data
 #' @param output_type string with output format ('list' or 'yaml'
+#' @param template string with the name of the CV template.
+#'   Currently only vitae templates are supported.
+#' @param template_args list with additional arguments to be passed to the template
 #'
 #' return list or YAML with header data
 #' @export
 #' @keywords CV
 #'
-get_cv_header <- function(cv_template = "awesomecv",
-                          orcid = Sys.getenv("ORCID_ID"),
+get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
                           json_path = NULL,
-                          output_type = c("list", "yaml")) {
+                          output_type = c("list", "yaml"),
+                          template = "vitae::awesomecv",
+                          template_args = NULL) {
   
   output_type <- match.arg(output_type)
   shf <- gjd("supported_header_fields",
@@ -165,8 +174,14 @@ get_cv_header <- function(cv_template = "awesomecv",
   out_l[["name"]] <- get_full_name(pd)
   out_l[["date"]] <- format(Sys.time(), "%B %Y")
   out_l[["headcolor"]] <- "009ACD"
-  out_l[["output"]] <- select_vitae_template(cv_template)
-
+ 
+  # get template settings
+  # data provided via JSON file has higher priority than
+  # data provided via template and template_args 
+  if (is.null(out_l[["output"]])) {
+    out_l[["output"]] <- get_template_settings(template, template_args)
+  }
+  
   out_l <- c(out_l, links_l)
 
   stopifnot(names(out_l) %in% shf)
@@ -282,26 +297,55 @@ get_full_name <- function(pd) {
   sprintf("%s %s", pd$given_names, pd$family_name)
 }
 
-#' select vitae tepmlate
+#' get_template_settings
 #' 
-#' select vitae template from the list of templates in package "vitae"
+#' get given template and its arguments 
 #' 
-#' @param template string with the template name
-select_vitae_template <- function(template = "awesomecv") {
-  templates <- c("awesomecv", 
-                 "hyndman", 
-                 "latexcv", 
-                 "markdowncv", 
-                 "moderncv", 
-                 "twentyseconds")
-  
-  if (template %in% templates) {
+#' @param template string with the name of the CV template.
+#'   Currently only vitae templates are supported.
+#' @param template_args list with additional arguments to be passed to the template
+#' 
+get_template_settings <-
+  function(template = "vitae::awesomecv",
+           template_args = NULL) {
+    templates <- c(
+      "vitae::awesomecv",
+      "vitae::hyndman",
+      "vitae::latexcv",
+      "vitae::markdowncv",
+      "vitae::moderncv",
+      "vitae::twentyseconds"
+    )
     
-    pd <- get_personal_data(orcid)
-    out_l <- pd
-    out_l[["output"]] <- paste0("vitae::", template)
-    return(out_l[["output"]])
-  } else {
-    print("Please, select vitae template from the list:", templates)
+    checkmate::assert_choice(template, choices = templates)
+    checkmate::assert_list(template_args, null.ok = TRUE)
+    
+    t_out <- if (is.null(template_args)) {
+      template
+    } else {
+      tav <- strsplit(template, split = "::")[[1]]
+      av_args <- formals(tav[2], envir = getNamespace(tav[1]))
+      av_names <- names(av_args[2:length(av_args)])
+      
+      if (names(av_args)[1] != "...") {
+        stop("The template function should have '...' as the first argument")
+      }
+      
+      bad_args <- setdiff(names(template_args), names(av_args))
+      if (length(bad_args) > 0) {
+        stop(
+          sprintf(
+            "The parameters %s are not valid for the %s template. Supported parameters are: %s.",
+            toString(bad_args),
+            template,
+            toString(av_names)
+          )
+        )
+      }
+      tl <- list(template = template_args)
+      names(tl) <- template
+      tl
+    }
+    
+    t_out
   }
-}
