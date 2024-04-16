@@ -20,6 +20,30 @@ test_that("get_cv_header works", {
   expect_true(file.exists(ch$profilepic))
   checkmate::expect_list(ch, any.missing = FALSE, null.ok = FALSE)
   
+  vcr::use_cassette("get_cv_header_2", {
+    ch2 <-
+      vitorcid::get_cv_header(orcid = "0000-0002-7059-6378", template = "vitae::moderncv")
+  })
+  
+  checkmate::expect_list(ch2, any.missing = FALSE, null.ok = FALSE)
+  vcr::use_cassette("get_cv_header_3", {
+    ch3 <-
+      vitorcid::get_cv_header(
+        orcid = "0000-0002-7059-6378",
+        template = "vitae::moderncv",
+        template_args = list(theme = "oldstyle")
+      )
+  })
+  checkmate::expect_list(ch3, any.missing = FALSE, null.ok = FALSE)
+  
+  # expect error
+  expect_error(
+    get_cv_header(
+      orcid = "0000-0002-7059-6378",
+      template = "vitae::moderncv",
+      template_args = list(strange_param = "aha")),
+      "The parameters strange_param are not valid"
+    )
 })
 
 test_that("get_cv_data works", {
@@ -44,6 +68,7 @@ test_that("get_cv_data works", {
       get_cv_data(orcid = "0000-0002-7059-6378",
                   entries = c("education", "employment", "work"))
   })
+  
   conf_json_path <- system.file(package = "vitorcid", "config.json")
   se <- gjd(json_path = conf_json_path, s = "supported_entries") 
   expect_true(all(names(cd) %in% c("pd", se)))

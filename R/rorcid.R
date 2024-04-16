@@ -287,7 +287,7 @@ get_personal_data <- function(orcid = Sys.getenv("ORCID_ID")) {
   )
 }
 
-#' @keywords .internal
+#' @keywords internal
 get_full_name <- function(pd) {
   # sanitize
   pd$family_name <- gsub("\\s+", " ", pd$family_name)
@@ -305,6 +305,7 @@ get_full_name <- function(pd) {
 #'   Currently only vitae templates are supported.
 #' @param template_args list with additional arguments to be passed to the template
 #' 
+#' @keywords internal
 get_template_settings <-
   function(template = "vitae::awesomecv",
            template_args = NULL) {
