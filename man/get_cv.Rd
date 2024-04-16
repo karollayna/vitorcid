@@ -10,7 +10,7 @@ get_cv(
   output_type = c("Rmd", "pdf"),
   json_path = NULL,
   entries = c("education", "employment", "r_package", "citation"),
-  template = "vitorcid::awesomecv",
+  template = "vitae::awesomecv",
   template_args = NULL
 )
 }

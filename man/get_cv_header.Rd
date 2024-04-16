@@ -8,7 +8,7 @@ get_cv_header(
   orcid = Sys.getenv("ORCID_ID"),
   json_path = NULL,
   output_type = c("list", "yaml"),
-  template = "vitorcid::awesomecv",
+  template = "vitae::awesomecv",
   template_args = NULL
 )
 }

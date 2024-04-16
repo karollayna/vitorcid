@@ -15,3 +15,4 @@ Currently only vitae templates are supported.}
 \description{
 get given template and its arguments
 }
+\keyword{internal}
