@@ -83,6 +83,12 @@ vitorcid::get_cv("CV")
 -   update the data at orcid.org and rerun `get_cv`
 -   edit the template (CV.Rmd) and knit it (e.g. from within the Rstudio)
 
+You can customize the appearance of your CV and choose one of the available templates. Currently only vitae templates are supported. Templates gallery: [link](https://github.com/mitchelloharawild/vitae?tab=readme-ov-file#templates)
+
+```{r, eval = FALSE}
+vitorcid::get_cv(template = "vitae::twentyseconds")
+```
+
 # Use cases
 
 ## Customizing CV data with JSON file
