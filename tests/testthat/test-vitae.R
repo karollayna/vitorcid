@@ -17,7 +17,8 @@ test_that("get_vitae_entry works", {
     vec <- get_vitae_entry(entry_type = "citation", orcid = "0000-0002-7059-6378")
   })
   expect_true(checkmate::check_class(vee, "vitae_detailed"))
-  expect_true(checkmate::check_class(ver, "vitae_detailed"))
+  # disabled until https://github.com/r-hub/pkgsearch/issues/111 is fixed
+  # expect_true(checkmate::check_class(ver, "vitae_detailed")) # nolint
   expect_true(checkmate::check_class(vec, "vitae_bibliography"))
   
 })
