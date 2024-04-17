@@ -24,7 +24,7 @@ get_cv <-
            entries = c("education", "employment", "r_package", "citation"),
            template = "vitae::awesomecv",
            template_args = NULL) {
-    cvl <- get_cv_data(orcid = orcid, json_path = json_path)
+    cvl <- get_cv_data(orcid = orcid, json_path = json_path, entries = entries)
     header_yaml <-
       get_cv_header(orcid = orcid,
                     output_type = "yaml",
@@ -45,8 +45,8 @@ get_cv <-
       sprintf("```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitorcid)
-cvl <- get_cv_data(orcid = '%s', json_path = %s)
-```", orcid, json_path_str)
+cvl <- get_cv_data(orcid = '%s', json_path = %s, entries = c('%s'))
+```", orcid, json_path_str, paste(entries, collapse = "','"))
 
     if (!is.null(cvl$pd$summary)) {
       rmd_str <- c(
