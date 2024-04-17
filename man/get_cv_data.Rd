@@ -7,7 +7,7 @@
 get_cv_data(
   orcid = Sys.getenv("ORCID_ID"),
   json_path = NULL,
-  entries = c("education", "employment", "r_package", "citation")
+  entries = c("education", "employment", "citation")
 )
 }
 \arguments{

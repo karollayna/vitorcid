@@ -9,7 +9,7 @@ get_cv(
   orcid = Sys.getenv("ORCID_ID"),
   output_type = c("Rmd", "pdf"),
   json_path = NULL,
-  entries = c("education", "employment", "r_package", "citation"),
+  entries = c("education", "employment", "citation"),
   template = "vitae::awesomecv",
   template_args = NULL
 )
