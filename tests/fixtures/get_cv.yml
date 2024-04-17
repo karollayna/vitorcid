@@ -253,7 +253,7 @@ http_interactions:
               },
               "url-name" : "www",
               "url" : {
-                "value" : "http://gladki.pl"
+                "value" : "https://gladki.pl"
               },
               "visibility" : "public",
               "path" : "/0000-0002-7059-6378/researcher-urls/4479702",
@@ -683,7 +683,7 @@ http_interactions:
               },
               "url-name" : "www",
               "url" : {
-                "value" : "http://gladki.pl"
+                "value" : "https://gladki.pl"
               },
               "visibility" : "public",
               "path" : "/0000-0002-7059-6378/researcher-urls/4479702",
@@ -1113,7 +1113,7 @@ http_interactions:
               },
               "url-name" : "www",
               "url" : {
-                "value" : "http://gladki.pl"
+                "value" : "https://gladki.pl"
               },
               "visibility" : "public",
               "path" : "/0000-0002-7059-6378/researcher-urls/4479702",
