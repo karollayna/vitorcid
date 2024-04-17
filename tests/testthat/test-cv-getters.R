@@ -36,6 +36,7 @@ test_that("get_cv_header works", {
   })
   checkmate::expect_list(ch3, any.missing = FALSE, null.ok = FALSE)
   
+  vcr::use_cassette("get_cv_header_4", {
   # expect error
   expect_error(
     get_cv_header(
@@ -44,6 +45,7 @@ test_that("get_cv_header works", {
       template_args = list(strange_param = "aha")),
       "The parameters strange_param are not valid"
     )
+  })
 })
 
 test_that("get_cv_data works", {
