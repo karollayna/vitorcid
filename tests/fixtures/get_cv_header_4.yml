@@ -10,19 +10,17 @@ http_interactions:
       Accept: application/vnd.orcid+json; qs=4
       User-Agent: r-curl/5.1.0 crul/1.4.0 rOpenSci(rorcid/0.7.0)
       X-USER-AGENT: r-curl/5.1.0 crul/1.4.0 rOpenSci(rorcid/0.7.0)
-      Authorization: Bearer <<rorcid_bearer_token>>
+      Authorization: Bearer 95b59675-8352-45e2-a0ba-f5905fd64559
   response:
     status:
       status_code: '200'
       message: OK
       explanation: Request fulfilled, document follows
     headers:
-      status: HTTP/1.1 200 OK
-      date: Tue, 26 Mar 2024 07:41:20 GMT
+      status: 'HTTP/2 200 '
+      date: Wed, 17 Apr 2024 10:52:31 GMT
       content-type: application/vnd.orcid+json;charset=UTF-8
-      transfer-encoding: chunked
-      connection: keep-alive
-      cf-ray: 86a57f6addc65d98-FRA
+      cf-ray: 875bddb5ae9a325c-VIE
       cf-cache-status: DYNAMIC
       access-control-allow-origin: '*'
       cache-control: no-cache, no-store, max-age=0, must-revalidate
@@ -30,7 +28,7 @@ http_interactions:
       pragma: no-cache
       x-content-type-options: nosniff
       x-frame-options: DENY
-      x-target: reg-prod-papi-use2-a1
+      x-target: reg-prod-papi-use2-c1
       x-via: b1
       x-xss-protection: 1; mode=block
       vary: Accept-Encoding
@@ -429,5 +427,5 @@ http_interactions:
           },
           "path" : "/0000-0002-7059-6378/person"
         }
-  recorded_at: 2024-03-26 07:41:20 GMT
+  recorded_at: 2024-04-17 10:52:32 GMT
   recorded_with: vcr/1.2.2, webmockr/0.9.0

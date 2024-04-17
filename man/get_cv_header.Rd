@@ -7,7 +7,9 @@
 get_cv_header(
   orcid = Sys.getenv("ORCID_ID"),
   json_path = NULL,
-  output_type = c("list", "yaml")
+  output_type = c("list", "yaml"),
+  template = "vitae::awesomecv",
+  template_args = NULL
 )
 }
 \arguments{
@@ -16,7 +18,12 @@ by default fetched fomr "ORCID_ID" system variable}
 
 \item{json_path}{string to JSON file with additional/custom data}
 
-\item{output_type}{string with output format ('list' or 'yaml'
+\item{output_type}{string with output format ('list' or 'yaml'}
+
+\item{template}{string with the name of the CV template.
+Currently only vitae templates are supported.}
+
+\item{template_args}{list with additional arguments to be passed to the template
 
 return list or YAML with header data}
 }
