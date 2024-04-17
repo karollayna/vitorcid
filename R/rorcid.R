@@ -21,7 +21,7 @@ get_cv <-
            orcid = Sys.getenv("ORCID_ID"),
            output_type = c("Rmd", "pdf"),
            json_path = NULL,
-           entries = c("education", "employment", "r_package", "citation"),
+           entries = c("education", "employment", "citation"),
            template = "vitae::awesomecv",
            template_args = NULL) {
     cvl <- get_cv_data(orcid = orcid, json_path = json_path, entries = entries)
@@ -210,7 +210,7 @@ get_cv_header <- function(orcid = Sys.getenv("ORCID_ID"),
 get_cv_data <-
   function(orcid = Sys.getenv("ORCID_ID"),
            json_path = NULL,
-           entries = c("education", "employment", "r_package", "citation")) {
+           entries = c("education", "employment", "citation")) {
     ml <- lapply(entries, function(entry) {
       get_vitae_entry(entry, orcid, json_path = json_path)
     })

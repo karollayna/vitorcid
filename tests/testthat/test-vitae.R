@@ -12,7 +12,8 @@ test_that("get_vitae_entry works", {
       depth = 3
     )
     vee <- get_vitae_entry(entry_type = "education", orcid = "0000-0002-7059-6378")
-    ver <- get_vitae_entry(entry_type = "r_package", orcid = "0000-0002-7059-6378")
+    # disabled until https://github.com/r-hub/pkgsearch/issues/111 is fixed
+    # ver <- get_vitae_entry(entry_type = "r_package", orcid = "0000-0002-7059-6378") # nolint
     vec <- get_vitae_entry(entry_type = "citation", orcid = "0000-0002-7059-6378")
   })
   expect_true(checkmate::check_class(vee, "vitae_detailed"))
